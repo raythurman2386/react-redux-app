@@ -17,7 +17,7 @@ function App() {
 
   return (
     <AppWrapper>
-      <AppHeader>Test</AppHeader>
+      <AppHeader>Most Popular TV</AppHeader>
       {error && <h1>{error}</h1>}
       {isLoading ? <div className='spinner' /> : <TvSeriesList />}
     </AppWrapper>
@@ -30,6 +30,7 @@ const AppWrapper = styled.div`
   text-align: center;
 `
 const AppHeader = styled.header`
+  font-size: 3rem;
   background-color: #111;
   color: white;
   height: 6rem;
