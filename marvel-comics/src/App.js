@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { connect, useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getMarvelComics } from './actions'
 
 function App(props) {
