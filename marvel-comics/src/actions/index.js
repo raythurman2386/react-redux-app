@@ -10,7 +10,7 @@ export const getMarvelComics = () => dispatch => {
   axios
     .get(`https://gateway.marvel.com:443/v1/public/comics?apikey=${publicKey}`)
     .then(res =>
-      dispatch({ type: GET_COMICS_SUCCESS, payload: res.data.results })
+      dispatch({ type: GET_COMICS_SUCCESS, payload: res.data.data.results })
     )
     .catch(err => dispatch({ type: GET_COMICS_FAILED, payload: err }))
 }

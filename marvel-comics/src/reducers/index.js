@@ -20,12 +20,13 @@ export const reducer = (state = initialState, action) => {
     case GET_COMICS_SUCCESS:
       return {
         ...state,
-        comics: action.payload,
+        comics: [action.payload],
         isLoading: !state.isLoading
       }
     case GET_COMICS_FAILED:
       return {
         ...state,
+        isLoading: !state.isLoading,
         error: action.payload
       }
     default:
