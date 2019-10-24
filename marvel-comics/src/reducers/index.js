@@ -1,29 +1,29 @@
 import {
-  GET_COMICS_START,
-  GET_COMICS_SUCCESS,
-  GET_COMICS_FAILED
+  GET_SERIES_START,
+  GET_SERIES_SUCCESS,
+  GET_SERIES_FAILED
 } from '../actions'
 
 const initialState = {
-  comics: [],
+  series: [],
   isLoading: false,
   error: ''
 }
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_COMICS_START:
+    case GET_SERIES_START:
       return {
         ...state,
         isLoading: !state.isLoading
       }
-    case GET_COMICS_SUCCESS:
+    case GET_SERIES_SUCCESS:
       return {
         ...state,
-        comics: action.payload,
+        series: action.payload,
         isLoading: !state.isLoading
       }
-    case GET_COMICS_FAILED:
+    case GET_SERIES_FAILED:
       return {
         ...state,
         isLoading: !state.isLoading,

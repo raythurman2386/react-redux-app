@@ -1,23 +1,19 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-const ComicList = () => {
-  const comics = useSelector(state => state.comics)
+const TvSeriesList = () => {
+  const series = useSelector(state => state.series)
 
   return (
     <div>
-      {comics &&
-        comics.map((comic, index) => (
+      {series &&
+        series.map((series, index) => (
           <div key={index}>
-            <p>{comic.title}</p>
-            <img
-              src={`${comic.thumbnail.path}/portrait_xlarge.jpg`}
-              alt={comic.title}
-            />
+            <p>{series.original_name}</p>
           </div>
         ))}
     </div>
   )
 }
 
-export default ComicList
+export default TvSeriesList

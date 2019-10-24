@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getMarvelComics } from './actions'
+import { getPopularTv } from './actions'
 
 // Components
-import ComicList from './components/ComicList'
+import TvSeriesList from './components/TvSeriesList'
 
 function App() {
   const isLoading = useSelector(state => state.isLoading)
@@ -11,13 +11,13 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getMarvelComics())
+    dispatch(getPopularTv())
   }, [])
 
   return (
     <div className='App'>
       <h1>Test</h1>
-      {isLoading ? <div className='spinner' /> : <ComicList />}
+      {isLoading ? <div className='spinner' /> : <TvSeriesList />}
     </div>
   )
 }
