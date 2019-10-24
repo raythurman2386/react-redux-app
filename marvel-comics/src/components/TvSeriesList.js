@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import Show from './Show'
 
 const TvSeriesList = () => {
   const series = useSelector(state => state.series)
@@ -8,11 +9,7 @@ const TvSeriesList = () => {
   return (
     <TvGrid>
       {series &&
-        series.map((series, index) => (
-          <div key={index}>
-            <p>{series.original_name}</p>
-          </div>
-        ))}
+        series.map((series, index) => <Show key={index} show={series} />)}
     </TvGrid>
   )
 }
