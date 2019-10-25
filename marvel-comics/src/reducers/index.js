@@ -15,18 +15,19 @@ export const reducer = (state = initialState, action) => {
     case GET_SERIES_START:
       return {
         ...state,
-        isLoading: !state.isLoading
+        isLoading: true,
+        error: null
       }
     case GET_SERIES_SUCCESS:
       return {
         ...state,
         series: action.payload,
-        isLoading: !state.isLoading
+        isLoading: false
       }
     case GET_SERIES_FAILED:
       return {
         ...state,
-        isLoading: !state.isLoading,
+        isLoading: false,
         error: action.payload
       }
     default:
