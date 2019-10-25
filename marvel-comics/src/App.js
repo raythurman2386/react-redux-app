@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { getPopularTv } from './actions'
+import { useSelector } from 'react-redux'
+import { useAxios } from './hooks/useAxios'
 import styled from 'styled-components'
 
 // Components
 import TvSeriesList from './components/TvSeriesList'
 
 function App() {
+  const { fetchTvShows } = useAxios()
   const isLoading = useSelector(state => state.isLoading)
   const error = useSelector(state => state.error)
-  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getPopularTv())
+    fetchTvShows()
   }, [])
 
   return (
