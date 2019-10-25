@@ -8,8 +8,7 @@ import TvSeriesList from './components/TvSeriesList'
 
 function App() {
   const { fetchTvShows } = useAxios()
-  const isLoading = useSelector(state => state.isLoading)
-  const error = useSelector(state => state.error)
+  const { isLoading, error } = useSelector(state => state)
 
   useEffect(() => {
     fetchTvShows()
@@ -19,7 +18,7 @@ function App() {
     <AppWrapper>
       <AppHeader>Most Popular TV</AppHeader>
       {error && <h1>{error}</h1>}
-      {isLoading ? <div className='spinner' /> : <TvSeriesList />}
+      {isLoading ? <h1>Loading . . .</h1> : <TvSeriesList />}
     </AppWrapper>
   )
 }
