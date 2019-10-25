@@ -1,26 +1,29 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useAxios } from './hooks/useAxios'
+import { ActionsProvider } from './contexts/ActionsContext'
 import styled from 'styled-components'
 
 // Components
 import TvSeriesList from './components/TvSeriesList'
 
 function App() {
-  const { fetchTvShows } = useAxios()
+  const actions = useAxios()
   const isLoading = useSelector(state => state.isLoading)
   const error = useSelector(state => state.error)
 
   useEffect(() => {
-    fetchTvShows()
+    // fetchTvShows()
   }, [])
 
   return (
-    <AppWrapper>
-      <AppHeader>Most Popular TV</AppHeader>
-      {error && <h1>{error}</h1>}
-      {isLoading ? <div className='spinner' /> : <TvSeriesList />}
-    </AppWrapper>
+    <ActionsProvider value={actions}>
+      <AppWrapper>
+        <AppHeader>Most Popular TV</AppHeader>
+        {error && <h1>{error}</h1>}
+        {isLoading ? <div className='spinner' /> : <TvSeriesList />}
+      </AppWrapper>
+    </ActionsProvider>
   )
 }
 
