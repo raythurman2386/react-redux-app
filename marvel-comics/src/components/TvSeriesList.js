@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import Show from './Show'
