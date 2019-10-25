@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { useAxios } from './hooks/useAxios'
 import { ActionsProvider } from './contexts/ActionsContext'
@@ -12,16 +12,12 @@ function App() {
   const isLoading = useSelector(state => state.isLoading)
   const error = useSelector(state => state.error)
 
-  useEffect(() => {
-    // fetchTvShows()
-  }, [])
-
   return (
     <ActionsProvider value={actions}>
       <AppWrapper>
         <AppHeader>Most Popular TV</AppHeader>
         {error && <h1>{error}</h1>}
-        {isLoading ? <div className='spinner' /> : <TvSeriesList />}
+        {isLoading && <TvSeriesList />}
       </AppWrapper>
     </ActionsProvider>
   )
