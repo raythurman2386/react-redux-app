@@ -14,7 +14,7 @@ const TvSeriesList = () => {
 
   useEffect(() => {
     fetchTvShows()
-  }, [])
+  }, [fetchTvShows])
 
   return (
     <TvGrid>
